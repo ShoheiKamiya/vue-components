@@ -1,16 +1,16 @@
 <template>
   <div id="app">
-    <HelloWorld />
+    <GridTable />
   </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+import GridTable from './components/GridTable.vue'
 
 export default {
   name: 'App',
   components: {
-    HelloWorld
+    GridTable
   }
 }
 </script>
