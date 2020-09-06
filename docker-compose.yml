@@ -3,9 +3,9 @@ services:
   app:
     build: .
     ports:
-      - 9050:9050
+      - 8080:8080
     volumes:
       - .:/usr/src/app
     stdin_open: true
     tty: true
-    command: /bin/sh
+    command: yarn serve
