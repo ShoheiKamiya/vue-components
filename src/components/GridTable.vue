@@ -2,18 +2,18 @@
   <table>
     <thead>
       <tr>
-        <th>A</th>
-        <th>B</th>
+        <th v-for="column in mapColumns" :key="column[0]">{{column[1]}}</th>
       </tr>
     </thead>
     <tbody>
-      <tr>
-        <GridCell tabIndex='1' @keydown="move" />
-        <GridCell tabIndex='2' @keydown="move" />
-      </tr>
-      <tr>
-        <GridCell tabIndex='3' @keydown="move" />
-        <GridCell tabIndex='4' @keydown="move" />
+      <tr v-for="(row, rowIndex) in data" :key="row.id">
+        <GridCell
+          v-for="(column, colIndex) in mapColumns"
+          :key="column[0]"
+          :value="row[column[0]]"
+          :tabIndex="`${rowIndex*5 + colIndex}`"
+          @keydown="move"
+        />
       </tr>
     </tbody>
   </table>
@@ -21,23 +21,38 @@
 
 <script>
 import GridCell from './GridCell';
+import records from './records';
+import columns from './columns';
 
 export default {
   data() {
     return {
-      minIndex: 1,
-      maxIndex: 4,
-      columnNumber: 2,
+      data: records,
+      columns: columns,
     }
   },
   components: {
     GridCell,
   },
+  computed: {
+    mapColumns() {
+      return new Map(Object.entries(this.columns));
+    },
+    maxIndex() {
+      return this.data.length * this.mapColumns.size;
+    },
+    minIndex() {
+      return 0;
+    },
+    columnLength() {
+      return this.mapColumns.size;
+    }
+  },
   methods: {
     move(e) {
       const currentTabIndex = e.path[0].tabIndex;
       if (e.key=='ArrowUp') {
-        this.moveCell(currentTabIndex - this.columnNumber);
+        this.moveCell(currentTabIndex - this.columnLength);
         return
       }
       if (e.key=='ArrowRight') {
@@ -45,7 +60,7 @@ export default {
         return
       }
       if (e.key=='ArrowDown') {
-        this.moveCell(currentTabIndex + this.columnNumber);
+        this.moveCell(currentTabIndex + this.columnLength);
         return
       }
       if (e.key=='ArrowLeft') {
@@ -54,7 +69,7 @@ export default {
       }
     },
     moveCell(index) {
-      if (index > this.maxIndex || index < this.minIndex) {
+      if (index >= this.maxIndex || index < this.minIndex) {
         return;
       }
       document.querySelector(`[tabindex="${index}"]`).focus()

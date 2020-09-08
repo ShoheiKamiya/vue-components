@@ -1,5 +1,5 @@
 <template>
-  <td :tabindex="tabIndex" @keydown.prevent="keydown">cell</td>
+  <td :tabindex="tabIndex" @keydown.prevent="keydown">{{value}}</td>
 </template>
 
 <script>
@@ -8,6 +8,9 @@ export default {
     tabIndex: {
       type: String,
       required: true,
+    },
+    value: {
+      type: String,
     }
   },
   methods: {
