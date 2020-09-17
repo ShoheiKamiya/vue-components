@@ -10,8 +10,11 @@
         <GridCell
           v-for="(column, colIndex) in mapColumns"
           :key="column[0]"
+          :rowIndex="rowIndex"
+          :colKey="column[0]"
           :value="row[column[0]]"
           :tabIndex="`${rowIndex*5 + colIndex}`"
+          @update="updateValue"
           @keydown="move"
         />
       </tr>
@@ -73,6 +76,11 @@ export default {
         return;
       }
       document.querySelector(`[tabindex="${index}"]`).focus()
+    },
+    updateValue(cell) {
+      const record = this.data[cell.rowIndex];
+      const newRecord = {...record, [cell.colKey]: cell.newValue }
+      this.data.splice(cell.rowIndex, 1, newRecord)
     }
   }
 }
