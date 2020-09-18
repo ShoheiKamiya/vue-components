@@ -5,7 +5,7 @@ services:
     ports:
       - 8080:8080
     volumes:
-      - .:/usr/src/app
+      - .:/app
     stdin_open: true
     tty: true
     command: yarn serve

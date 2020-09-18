@@ -5,15 +5,14 @@
 </template>
 
 <script>
-import GridTable from './components/GridTable.vue'
+import GridTable from './components/GridTable.vue';
 
 export default {
   name: 'App',
   components: {
-    GridTable
-  }
-}
+    GridTable,
+  },
+};
 </script>
 
-<style>
-</style>
+<style></style>
