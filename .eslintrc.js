@@ -1,20 +1,21 @@
 module.exports = {
   env: {
     browser: true,
-    es2017: true
+    es2017: true,
   },
   extends: [
-    "eslint:recommended",
-    "plugin:vue/recommended",
-    "standard",
-    "prettier"
+    'eslint:recommended',
+    'plugin:vue/recommended',
+    'standard',
+    'prettier',
+    'prettier/vue',
   ],
   parserOptions: {
     ecmaVersion: 2019,
-    sourceType: "module"
+    sourceType: 'module',
   },
-  plugins: ["vue", "prettier"],
+  plugins: ['vue', 'prettier'],
   rules: {
-    "prettier/prettier": "error"
-  }
+    'prettier/prettier': 'error',
+  },
 };
