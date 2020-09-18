@@ -4,4 +4,4 @@ export default {
   birthday: '誕生日',
   annualIncome: '年収',
   employmentStatus: '雇用形態',
-}
+};

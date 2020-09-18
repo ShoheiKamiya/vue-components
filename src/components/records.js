@@ -23,4 +23,4 @@ export default [
     annualIncome: '83000',
     employmentStatus: '従業員',
   },
-]
+];
