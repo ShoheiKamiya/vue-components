@@ -1,8 +1,29 @@
 <template>
-  <div class="list">
-    <div class="card">Task</div>
+  <div class="list" @drop="emitDropTask($event)" @dragover.prevent>
+    <slot />
   </div>
 </template>
+
+<script>
+export default {
+  props: {
+    category: {
+      type: String,
+      required: true,
+    },
+  },
+  methods: {
+    emitDropTask(event) {
+      const task = {
+        id: Number(event.dataTransfer.getData('taskId')),
+        category: this.category,
+      };
+
+      this.$emit('dropTask', task);
+    },
+  },
+};
+</script>
 
 <style>
 .list {
@@ -11,13 +32,5 @@
   border-radius: 18px;
   padding: 28px 20px;
   background: rgb(237, 245, 255);
-}
-
-.card {
-  background: #fff;
-  width: 100%;
-  padding: 8px;
-  border: 1px solid rgba(92, 147, 187, 0.15);
-  border-radius: 4px;
 }
 </style>
