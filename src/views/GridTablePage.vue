@@ -5,7 +5,7 @@
 </template>
 
 <script>
-import GridTable from '@/components/GridTable.vue';
+import GridTable from '@/projects/01-grid-table/GridTable';
 
 export default {
   components: {
