@@ -28,6 +28,7 @@
 #nav {
   width: 200px;
   height: 100vh;
+  padding: 1.5em;
   border-right: 1px solid#eaecef;
 
   a {
