@@ -1,3 +1,4 @@
 module.exports = {
-  // options...
+  publicPath: '/vue-components/',
+  outputDir: 'docs',
 };
