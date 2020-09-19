@@ -2,10 +2,10 @@
   <div id="app">
     <nav id="nav">
       <ul class="main-menu">
-        <li class="main-menu-item">
+        <li class="main-menu__item">
           <router-link to="/">Home</router-link>
         </li>
-        <li class="main-menu-item">
+        <li class="main-menu__item">
           <router-link to="/01-grid-table">01 GridTable</router-link>
         </li>
       </ul>
@@ -16,7 +16,7 @@
   </div>
 </template>
 
-<style>
+<style lang="scss">
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
@@ -29,23 +29,23 @@
   width: 200px;
   height: 100vh;
   border-right: 1px solid#eaecef;
-}
 
-#nav a {
-  font-weight: bold;
-  color: #2c3e50;
-}
+  a {
+    font-weight: bold;
+    color: #2c3e50;
 
-#nav a.router-link-exact-active {
-  color: #42b983;
+    &.router-link-exact-active {
+      color: #42b983;
+    }
+  }
 }
 
 .main-menu {
   list-style-type: none;
-}
 
-.main-menu-item:not(:last-child) {
-  margin-bottom: 0.5em;
+  &__item:not(:last-child) {
+    margin-bottom: 0.5em;
+  }
 }
 
 .main {
