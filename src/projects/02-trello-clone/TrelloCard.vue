@@ -1,5 +1,10 @@
 <template>
-  <div class="card" @dragstart="dragstart($event)">
+  <div
+    class="card"
+    :class="{ dragging: isDragging }"
+    @dragstart="dragstart($event)"
+    @dragend="dragend"
+  >
     {{ task.title }}
   </div>
 </template>
@@ -12,9 +17,18 @@ export default {
       required: true,
     },
   },
+  data() {
+    return {
+      isDragging: false,
+    };
+  },
   methods: {
     dragstart(event) {
       event.dataTransfer.setData('taskId', this.task.id);
+      this.isDragging = true;
+    },
+    dragend() {
+      this.isDragging = false;
     },
   },
 };
@@ -27,5 +41,9 @@ export default {
   padding: 8px;
   border: 1px solid rgba(92, 147, 187, 0.15);
   border-radius: 4px;
+}
+
+.dragging {
+  opacity: 0.3;
 }
 </style>
