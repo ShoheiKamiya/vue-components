@@ -8,6 +8,9 @@
         <li class="main-menu__item">
           <router-link to="/01-grid-table">01 GridTable</router-link>
         </li>
+        <li class="main-menu__item">
+          <router-link to="/03-charts">03 Charts</router-link>
+        </li>
       </ul>
     </nav>
     <div class="main">

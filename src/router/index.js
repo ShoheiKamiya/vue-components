@@ -2,6 +2,7 @@ import Vue from 'vue';
 import VueRouter from 'vue-router';
 import Home from '../views/Home.vue';
 import GridTablePage from '@/views/GridTablePage';
+import ChartsPage from '@/views/ChartsPage';
 
 Vue.use(VueRouter);
 
@@ -14,6 +15,10 @@ const routes = [
   {
     path: '/01-grid-table',
     component: GridTablePage,
+  },
+  {
+    path: '/03-charts',
+    component: ChartsPage,
   },
 ];
 
