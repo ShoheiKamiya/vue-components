@@ -8,6 +8,9 @@
         <li class="main-menu__item">
           <router-link to="/01-grid-table">01 GridTable</router-link>
         </li>
+        <li class="main-menu-item">
+          <router-link to="/02-trello-clone">02 Trello Clone</router-link>
+        </li>
       </ul>
     </nav>
     <div class="main">
