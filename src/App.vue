@@ -58,4 +58,13 @@
 .main {
   padding: 3em;
 }
+
+@media screen and (max-width: 480px) {
+  #nav {
+    display: none;
+  }
+  .main {
+    width: 100%;
+  }
+}
 </style>
