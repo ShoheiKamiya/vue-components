@@ -3,6 +3,7 @@ import VueRouter from 'vue-router';
 import Home from '../views/Home.vue';
 import GridTablePage from '@/views/GridTablePage';
 import ChartsPage from '@/views/ChartsPage';
+import LiffPage from '@/views/LiffPage';
 
 Vue.use(VueRouter);
 
@@ -19,6 +20,10 @@ const routes = [
   {
     path: '/03-charts',
     component: ChartsPage,
+  },
+  {
+    path: '/04-liff',
+    component: LiffPage,
   },
 ];
 
